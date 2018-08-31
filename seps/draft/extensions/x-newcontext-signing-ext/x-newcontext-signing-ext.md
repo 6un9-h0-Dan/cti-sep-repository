@@ -60,7 +60,7 @@ As it is possible to sign an object that references an object that is unsigned, 
 
 The Identity Object will have an additional field to store the public key (see [Identity Properties](#identity-properties).  This public key may be changed just like any other property by creating a new version.  Implementations may choose to store older versions of the public key to allow verification of older signatures.  The key **MUST NOT** be used to sign an object with a modified date before the modified date of the first time the key appeared on the Identity Object. When the key is changed, the previous key **MUST NOT** be used to sign any object that has a modified date that is equal to, or later than the new key's modified date.
 
-![Key and Object signing life time](STIX Identity Key Timeline.svg)
+![Key and Object signing life time](https://raw.githubusercontent.com/jmgnc/cti-sep-repository/digitalsig/seps/draft/extensions/x-newcontext-signing-ext/STIX%20Identity%20Key%20Timeline.svg?sanitize=true)
 
 NOTE: Though it is supported to modify the Identity object to have a new key, it is current not defined how to bind the keys together to make authenticating new keys easy.  If keys are rotated, and later the older key leaks, there is nothing that prevents an attacker from generating a new Identity object w/ a new key to attempt to take over the Identity.  This may be solved via a blockchain style construction, but is reserved for future work, and to prevent this proposal from being to complicated.  An addition should be able to be built upon this proposal, but not require changes to this general structure.
 
