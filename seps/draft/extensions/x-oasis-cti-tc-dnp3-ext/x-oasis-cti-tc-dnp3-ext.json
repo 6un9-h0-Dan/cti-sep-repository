@@ -58,7 +58,7 @@
         },
         "devicerestart": {
           "type": "boolean",
-          "description": "This specifies the IIN1.6 if it is present."
+          "description": "This specifies the IIN1.7 if it is present."
         },
         "nofunccodesup": {
           "type": "boolean",
