@@ -15,6 +15,10 @@ There are two parts to digital signatures, the first part is hashing STIX object
 
 This signing method may be applied to either an SDO or an SRO.  As the embedded references follow the same definition in both SDOs and SROs, no modifications are needed between the two.  Being able to sign an SRO is necessary for asserting that a course of action mitigates a malware.  You want assurances that the course of action is correct and trusted (signed COA SDO) and that it really does mitigate (signed SRO) the malware (signed malware SDO).
 
+Notes:
+* Third party signatures should probably use a new signature SDO object.
+* First party signatures are part of the object.  This means if you publish an object w/o a signature and want to add a signature, then you need to update the modified date.  That is you cannot add a signature to a previously published object.  You could use a third party SDO to add the signature.  (I think this make sense, but I'm open for discussion.  I think this makes the most sense, as it prevents the issue where an implementation simply compares the modifed date on the two objects, and rejects the one w/ the signature since it already exists in the database.)
+
 ## SEP Use Cases
 * Verify that STIX object is authored by party even when received through untrusted channels.
 * Build trust in sources, some that may be anonymous.
