@@ -28,7 +28,7 @@ Notes:
 This is an extension to all STIX objects (SDOs and SROs, but not Cyber Oberservable objects).
 
 ## SEP Definition
-Note: Use of JCS requires that the STIX `integer` data type range be restricted to [ 2**53, -2**53 ].  This is because JavaScript, and the ECMAScript standard mandates the use of floating point values for formating numbers, and integer numbers outside this range will be not be redered properly.  If it was allowed, `integer` values could be changed w/o knowledge by the verifier.  For example, 2**53+1 will print the same number as 2**53, and so, the two values will result in the same hash.
+Note: Use of JCS requires that the STIX `integer` data type range be restricted to [ 2\**53, -2\**53 ].  This is because JavaScript, and the ECMAScript standard mandates the use of floating point values for formating numbers, and integer numbers outside this range will be not be redered properly.  If it was allowed, `integer` values could be changed w/o knowledge by the verifier.  For example, 2\**53+1 will print the same number as 2\**53, and so, the two values will result in the same hash.
 
 Signing necessitates that there not be a cycle in the graph of nodes.  If there is a cycle, then it is not possible to generate a valid signature.  The requirement that any referenced object's modfiied date is before the current object's modified date, ensures that a cycle cannot happen.  Even if the set of objects points to the same UUID, it is guaranteed that you will reach an end, as if each modified date is strickly before, there will be a time when we reach BEFORE STIX existed, and therefor no more objects can exist that require a signature.
 
